@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.waya.dao.UserRoleDao">
+    <insert id="insertUserRole">
+        <!-- ignore 主键冲突，报错,如果不加ingore 主键冲突时，异常，程序中断，需要补货异常处理 -->
+        INSERT ignore INTO waya_user_role (id, user_id,role_id)
+        VALUES (#{id}, #{userId}, #{roleId})
+    </insert>
+
+    <select id="queryByUserId" resultType="com.waya.entity.UserRole" parameterType="String">
+        <!-- 具体的sql -->
+        SELECT
+        id,
+        user_id,
+        role_id
+        FROM
+        waya_user_role
+        WHERE
+        user_id = #{userId}
+    </select>
+
+    <select id="queryByRoleId" resultType="com.waya.entity.UserRole" parameterType="String">
+        SELECT
+        id,
+        user_id,
+        role_id
+        FROM
+        waya_user_role
+        WHERE
+        role_id=#{roleId}
+    </select>
+    <select id="queryAll" resultType="com.waya.entity.UserRole">
+        <!-- 具体的sql -->
+        SELECT
+        id,
+        user_id,
+        role_id
+        FROM
+        waya_user_role
+    </select>
+
+    <delete id="delUserRoleByUserId"  parameterType="String">
+        <!-- 具体的sql -->
+        DELETE
+        FROM
+        waya_user_role
+        WHERE
+        user_id = #{userId}
+    </delete>
+
+    <delete id="delUserRoleByRoleId"  parameterType="String">
+        <!-- 具体的sql -->
+        DELETE
+        FROM
+        waya_user_role
+        WHERE
+        role_id = #{roleId}
+    </delete>
+
+
+    <delete id="delUserRoleById"  parameterType="String">
+        <!-- 具体的sql -->
+        DELETE
+        FROM
+        waya_user_role
+        WHERE
+        id = #{id}
+    </delete>
+</mapper>
