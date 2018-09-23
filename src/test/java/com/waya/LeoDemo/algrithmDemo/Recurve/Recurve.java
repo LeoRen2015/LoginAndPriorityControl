@@ -1,4 +1,4 @@
-package com.waya.LeoDemo.algrithmDemo;
+package com.waya.LeoDemo.algrithmDemo.Recurve;
 
 /**
  * Created by user on 2018/1/30.
