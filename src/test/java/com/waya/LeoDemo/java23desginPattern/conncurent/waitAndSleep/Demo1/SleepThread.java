@@ -22,7 +22,9 @@ public class SleepThread implements  Runnable {
 //            }
 //        }
 
+
 //        测试3  wait线程 拿到锁后，调用service的wait方法，将锁释放，进入等待池，等待唤醒。
+
 
         synchronized (Service.class){
             try {
@@ -35,10 +37,6 @@ public class SleepThread implements  Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
-
-
-
     }
 }
